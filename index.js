@@ -2,7 +2,7 @@ import { getSismologia, getSismologiaUnica } from './servicios/sismologia.js';
 import express from 'express';
 
 const app = express();
-const port = 3000 || process.env.port;
+const port = process.env.PORT || 3000;
 
 app.get('/', async (req, res) => {
     const sismosActuales = await getSismologia("http://sismologia.cl/links/tabla.html");
