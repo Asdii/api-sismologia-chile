@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 app.use(cors());
  
 app.get('/', async (req, res) => {
-    const sismosActuales = await getSismologia("http://sismologia.cl/links/tabla.html");
+    const sismosActuales = await getSismologia("http://sismologia.cl/");
     const detallesSismos = [];
     for(let sismo in sismosActuales['sismos']){
         let detalles = await getSismologiaUnica("http://sismologia.cl" + sismosActuales['sismos'][sismo].url);
