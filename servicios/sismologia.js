@@ -9,7 +9,7 @@ export async function getSismologia(url){
                 lugar:'td:nth-last-child(2)',
                 hora: 'td:nth-last-child(3)',
                 url: {
-                    selector: 'td:nth-last-child(3) > a:first',
+                    selector: 'td:nth-last-child(3) ~ a',
                     attr: "href"
                 }
             }
