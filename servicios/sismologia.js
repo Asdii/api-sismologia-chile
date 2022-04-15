@@ -9,33 +9,15 @@ export async function getSismologia(url){
                 lugar:'td:nth-last-child(2)',
                 hora: 'td:nth-last-child(3)',
                 url: {
-                    selector: 'td:nth-last-child(3) > a',
+                    selector: 'td:nth-last-child(3)',
+                    closest: "a",
                     attr: "href"
                 }
             }
         }
     }).then(response => response = response.data);
-
-    if(scrapingSismologia.url.includes("http")){
-        return scrapingSismologia;
-    }else{
-        const scrapingSismologiaBold = await scrapeIt(url, {
-            sismos: {
-                listItem:'tr:not(:first-child)',
-                data:{
-                    magnitud:'td:nth-last-child(1) > strong',
-                    lugar:'td:nth-last-child(2) > strong',
-                    hora: 'td:nth-last-child(3) > strong',
-                    url: {
-                        selector: 'td:nth-last-child(3) > strong > a',
-                        attr: "href"
-                    }
-                }
-            }
-        }).then(response => response = response.data);
-
-        return scrapingSismologiaBold;
-    }
+    
+    return scrapingSismologia;
 }
 
 export async function getSismologiaUnica(url){
